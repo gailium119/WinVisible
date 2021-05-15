@@ -25,7 +25,7 @@
                 this["AppCloseAction"] = value;
         }
 
-        [UserScopedSetting, DebuggerNonUserCode, DefaultSettingValue("True")]
+        [UserScopedSetting, DebuggerNonUserCode, DefaultSettingValue("False")]
         public bool WarnOnNonRecommended
         {
             get => 
@@ -43,7 +43,7 @@
                 this["ShowHotkey"] = value;
         }
 
-        [DebuggerNonUserCode, UserScopedSetting, DefaultSettingValue("Alt+Shift+H")]
+        [DebuggerNonUserCode, UserScopedSetting, DefaultSettingValue("Alt+X")]
         public Keys HideHotkey
         {
             get => 
@@ -70,7 +70,7 @@
                 this["RememberProcesses"] = value;
         }
 
-        [DebuggerNonUserCode, UserScopedSetting, DefaultSettingValue("False")]
+        [DebuggerNonUserCode, UserScopedSetting, DefaultSettingValue("True")]
         public bool HideIcon
         {
             get => 

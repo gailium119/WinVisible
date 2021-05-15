@@ -35,7 +35,6 @@
         private ToolStripButton tsbtnKill;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripSeparator toolStripSeparator4;
-        private ToolStripButton tsbtnSendDonation;
         private ToolStripButton tsbtnUpdate;
         private ToolStripButton tsbtnOptions;
         private ToolStripButton tsbtnAbout;
@@ -364,7 +363,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnOptions = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbtnSendDonation = new System.Windows.Forms.ToolStripButton();
             this.tsbtnUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbtnAbout = new System.Windows.Forms.ToolStripButton();
             this.iconTray = new System.Windows.Forms.NotifyIcon(this.components);
@@ -524,7 +522,6 @@
             this.toolStripSeparator3,
             this.tsbtnOptions,
             this.toolStripSeparator4,
-            this.tsbtnSendDonation,
             this.tsbtnUpdate,
             this.tsbtnAbout});
             this.tsMain.Location = new System.Drawing.Point(0, 0);
@@ -596,17 +593,6 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 39);
             // 
-            // tsbtnSendDonation
-            // 
-            this.tsbtnSendDonation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSendDonation.Image = global::WinVisible.Properties.Resources.donate32x321;
-            this.tsbtnSendDonation.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbtnSendDonation.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSendDonation.Name = "tsbtnSendDonation";
-            this.tsbtnSendDonation.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnSendDonation.Text = "捐赠";
-            this.tsbtnSendDonation.Click += new System.EventHandler(this.tsbtnSendDonation_Click);
-            // 
             // tsbtnUpdate
             // 
             this.tsbtnUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -650,47 +636,47 @@
             this.cmsExit});
             this.cmsTray.Name = "cmsTray";
             this.cmsTray.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsTray.Size = new System.Drawing.Size(181, 142);
+            this.cmsTray.Size = new System.Drawing.Size(134, 120);
             // 
             // cmsShow
             // 
             this.cmsShow.BackColor = System.Drawing.Color.White;
             this.cmsShow.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsShow.Name = "cmsShow";
-            this.cmsShow.Size = new System.Drawing.Size(180, 22);
+            this.cmsShow.Size = new System.Drawing.Size(133, 22);
             this.cmsShow.Text = "WinVisible";
             this.cmsShow.Click += new System.EventHandler(this.cmsShow_Click);
             // 
             // cmsAbout
             // 
             this.cmsAbout.Name = "cmsAbout";
-            this.cmsAbout.Size = new System.Drawing.Size(180, 22);
+            this.cmsAbout.Size = new System.Drawing.Size(133, 22);
             this.cmsAbout.Text = "关于...";
             this.cmsAbout.Click += new System.EventHandler(this.cmsAbout_Click);
             // 
             // cmsCheckUpdates
             // 
             this.cmsCheckUpdates.Name = "cmsCheckUpdates";
-            this.cmsCheckUpdates.Size = new System.Drawing.Size(180, 22);
+            this.cmsCheckUpdates.Size = new System.Drawing.Size(133, 22);
             this.cmsCheckUpdates.Text = "检查更新";
             this.cmsCheckUpdates.Click += new System.EventHandler(this.cmsCheckUpdates_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(130, 6);
             // 
             // cmsOptions
             // 
             this.cmsOptions.Name = "cmsOptions";
-            this.cmsOptions.Size = new System.Drawing.Size(180, 22);
+            this.cmsOptions.Size = new System.Drawing.Size(133, 22);
             this.cmsOptions.Text = "选项...";
             this.cmsOptions.Click += new System.EventHandler(this.cmsOptions_Click);
             // 
             // cmsExit
             // 
             this.cmsExit.Name = "cmsExit";
-            this.cmsExit.Size = new System.Drawing.Size(180, 22);
+            this.cmsExit.Size = new System.Drawing.Size(133, 22);
             this.cmsExit.Text = "退出";
             this.cmsExit.Click += new System.EventHandler(this.cmsExit_Click);
             // 
