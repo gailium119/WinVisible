@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15BD27EB-546E-467F-B914-E9C31858636B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>WinVisible</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Compile Include="Global.cs" />
+    <Compile Include="WinVisible\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinVisible\frmError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinVisible\frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinVisible\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinVisible\Hotkey.cs" />
+    <Compile Include="WinVisible\HotkeyManager.cs" />
+    <Compile Include="NCS\Services.cs" />
+    <Compile Include="NCS\UpdateService.cs" />
+    <Compile Include="WinVisible\ProcessItem.cs" />
+    <Compile Include="WinVisible\ProcessCollection.cs" />
+    <Compile Include="WinVisible\ProcessManagerEventArgs.cs" />
+    <Compile Include="WinVisible\ProcessManager.cs" />
+    <Compile Include="WinVisible\Program.cs" />
+    <Compile Include="WinVisible\NCSUpdateService\Update.cs" />
+    <Compile Include="WinVisible\NCSUpdateService\VersionInfo.cs" />
+    <Compile Include="WinVisible\NCSUpdateService\UpdateResult.cs" />
+    <Compile Include="WinVisible\NCSUpdateService\CheckForUpdatesCompletedEventHandler.cs" />
+    <Compile Include="WinVisible\NCSUpdateService\CheckForUpdatesCompletedEventArgs.cs" />
+    <Compile Include="WinVisible\Properties\Resources.Designer.cs" />
+    <Compile Include="WinVisible\Properties\Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WinVisible\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinVisible\Properties\Resources.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
