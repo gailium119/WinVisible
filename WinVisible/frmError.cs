@@ -46,111 +46,160 @@
 
         private void InitializeComponent()
         {
-            this.toolStrip1 = new ToolStrip();
-            this.tsbtnInspect = new ToolStripButton();
-            this.tsbtnCopyMsg = new ToolStripButton();
-            this.label1 = new Label();
-            this.rtbError = new RichTextBox();
-            this.pictureBox1 = new PictureBox();
-            this.toolStripContainer1 = new ToolStripContainer();
-            this.tsbtnClose = new ToolStripButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmError));
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbtnClose = new System.Windows.Forms.ToolStripButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rtbError = new System.Windows.Forms.RichTextBox();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tsbtnInspect = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnCopyMsg = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
-            ((ISupportInitialize) this.pictureBox1).BeginInit();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            base.SuspendLayout();
-            this.toolStrip1.BackColor = Color.Transparent;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip1.CanOverflow = false;
-            this.toolStrip1.Dock = DockStyle.None;
-            ToolStripItem[] toolStripItems = new ToolStripItem[] { this.tsbtnInspect, this.tsbtnCopyMsg, this.tsbtnClose };
-            this.toolStrip1.Items.AddRange(toolStripItems);
-            this.toolStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip1.Location = new Point(0, 0);
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbtnInspect,
+            this.tsbtnCopyMsg,
+            this.tsbtnClose});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = ToolStripRenderMode.System;
-            this.toolStrip1.Size = new Size(0x1b1, 0x1f);
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(446, 31);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
-            this.tsbtnInspect.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            this.tsbtnInspect.Enabled = false;
-            this.tsbtnInspect.Image = Resources.search24x24;
-            this.tsbtnInspect.ImageScaling = ToolStripItemImageScaling.None;
-            this.tsbtnInspect.ImageTransparentColor = Color.Magenta;
-            this.tsbtnInspect.Name = "tsbtnInspect";
-            this.tsbtnInspect.Size = new Size(0x1c, 0x1c);
-            this.tsbtnInspect.Text = "Inspect error message";
-            this.tsbtnInspect.Click += new EventHandler(this.tsbtnInspect_Click);
-            this.tsbtnCopyMsg.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            this.tsbtnCopyMsg.Image = Resources.copy24x24;
-            this.tsbtnCopyMsg.ImageScaling = ToolStripItemImageScaling.None;
-            this.tsbtnCopyMsg.ImageTransparentColor = Color.Magenta;
-            this.tsbtnCopyMsg.Name = "tsbtnCopyMsg";
-            this.tsbtnCopyMsg.Size = new Size(0x1c, 0x1c);
-            this.tsbtnCopyMsg.Text = "Copy message to the clipboard";
-            this.tsbtnCopyMsg.Click += new EventHandler(this.tsbtnCopyMsg_Click);
+            // 
+            // tsbtnClose
+            // 
+            this.tsbtnClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbtnClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtnClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnClose.Name = "tsbtnClose";
+            this.tsbtnClose.Size = new System.Drawing.Size(36, 28);
+            this.tsbtnClose.Text = "关闭";
+            this.tsbtnClose.Click += new System.EventHandler(this.tsbtnClose_Click);
+            // 
+            // label1
+            // 
             this.label1.AutoSize = true;
-            this.label1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, 0);
-            this.label1.Location = new Point(0x42, 3);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(77, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new Size(0x4a, 13);
+            this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Information:";
-            this.rtbError.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
-            this.rtbError.BorderStyle = BorderStyle.None;
-            this.rtbError.Cursor = Cursors.Default;
+            this.label1.Text = "信息:";
+            // 
+            // rtbError
+            // 
+            this.rtbError.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbError.BackColor = System.Drawing.Color.White;
+            this.rtbError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbError.Cursor = System.Windows.Forms.Cursors.Default;
             this.rtbError.DetectUrls = false;
-            this.rtbError.Location = new Point(0x42, 0x13);
+            this.rtbError.Location = new System.Drawing.Point(77, 25);
+            this.rtbError.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtbError.Name = "rtbError";
             this.rtbError.ReadOnly = true;
-            this.rtbError.Size = new Size(0x163, 0x89);
+            this.rtbError.Size = new System.Drawing.Size(355, 133);
             this.rtbError.TabIndex = 6;
             this.rtbError.Text = "";
-            this.pictureBox1.Image = Resources.error48x48;
-            this.pictureBox1.Location = new Point(12, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new Size(0x30, 0x30);
-            this.pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.pictureBox1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.label1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.rtbError);
-            this.toolStripContainer1.ContentPanel.Size = new Size(0x1b1, 0xa8);
-            this.toolStripContainer1.Dock = DockStyle.Fill;
-            this.toolStripContainer1.Location = new Point(0, 0);
+            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(446, 174);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new Size(0x1b1, 0xc7);
+            this.toolStripContainer1.Size = new System.Drawing.Size(446, 205);
             this.toolStripContainer1.TabIndex = 10;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
-            this.tsbtnClose.Alignment = ToolStripItemAlignment.Right;
-            this.tsbtnClose.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            this.tsbtnClose.ImageTransparentColor = Color.Magenta;
-            this.tsbtnClose.Name = "tsbtnClose";
-            this.tsbtnClose.Size = new Size(0x25, 0x1c);
-            this.tsbtnClose.Text = "Close";
-            this.tsbtnClose.Click += new EventHandler(this.tsbtnClose_Click);
-            base.AutoScaleDimensions = new SizeF(6f, 13f);
-            base.AutoScaleMode = AutoScaleMode.Font;
-            base.ClientSize = new Size(0x1b1, 0xc7);
-            base.Controls.Add(this.toolStripContainer1);
-            base.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            base.Name = "frmError";
-            base.ShowInTaskbar = false;
-            base.StartPosition = FormStartPosition.CenterParent;
-            this.Text = "Error";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WinVisible.Properties.Resources.error48x48;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tsbtnInspect
+            // 
+            this.tsbtnInspect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnInspect.Enabled = false;
+            this.tsbtnInspect.Image = global::WinVisible.Properties.Resources.search24x24;
+            this.tsbtnInspect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtnInspect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnInspect.Name = "tsbtnInspect";
+            this.tsbtnInspect.Size = new System.Drawing.Size(28, 28);
+            this.tsbtnInspect.Text = "错误信息";
+            this.tsbtnInspect.Click += new System.EventHandler(this.tsbtnInspect_Click);
+            // 
+            // tsbtnCopyMsg
+            // 
+            this.tsbtnCopyMsg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCopyMsg.Image = global::WinVisible.Properties.Resources.copy24x24;
+            this.tsbtnCopyMsg.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbtnCopyMsg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnCopyMsg.Name = "tsbtnCopyMsg";
+            this.tsbtnCopyMsg.Size = new System.Drawing.Size(28, 28);
+            this.tsbtnCopyMsg.Text = "复制信息到剪切板";
+            this.tsbtnCopyMsg.Click += new System.EventHandler(this.tsbtnCopyMsg_Click);
+            // 
+            // frmError
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(446, 205);
+            this.Controls.Add(this.toolStripContainer1);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "frmError";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "错误";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((ISupportInitialize) this.pictureBox1).EndInit();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            base.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         private void tsbtnClose_Click(object sender, EventArgs e)

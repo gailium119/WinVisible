@@ -14,13 +14,13 @@
             Mutex mutex = null;
             try
             {
-                Mutex.OpenExisting("NCSWINVISIBLE").Close();
-                MessageBox.Show("Only one instance of NCS WinVisible can run at a time.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Mutex.OpenExisting("WINVISIBLE").Close();
+                MessageBox.Show("WinVisible已在运行！", "信息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
             catch (Exception)
             {
-                mutex = new Mutex(true, "NCSWINVISIBLE");
+                mutex = new Mutex(true, "WINVISIBLE");
             }
             Application.Run(new frmMain());
         }

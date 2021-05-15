@@ -96,7 +96,7 @@
                 SubItems = { 
                     item.Process.MainWindowTitle,
                     item.Process.Id.ToString(),
-                    item.Visible ? "Visible" : "Hidden"
+                    item.Visible ? "可见" : "不可见"
                 },
                 Tag = item,
                 Group = this.lvwProcess.Groups["Windowed"]
@@ -118,7 +118,7 @@
             {
                 UpdateService service = new UpdateService(Application.ProductVersion);
                 service.CheckForUpdateAsync();
-                this.tslblStatus.Text = "Checking for updates...";
+                this.tslblStatus.Text = "正在检查更新...";
                 while (true)
                 {
                     if (service.AsyncState != UpdateService.AsyncStates.Working)
@@ -132,12 +132,12 @@
                             case UpdateResult.CurrentVersion:
                                 if (!suppressNonUpdate)
                                 {
-                                    MessageBox.Show("You are running the most recent version. There are no updates available.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                    MessageBox.Show("你的WinVisible是最新版本！", "信息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 }
                                 break;
 
                             case UpdateResult.NewerAvailable:
-                                if (MessageBox.Show("There is a newer version available. Would you like to download the update now?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("发现新版本。是否下载下载？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     Services.NavigateToUrl(service.NewVersionInfo.DownloadUrl);
                                 }
@@ -158,7 +158,7 @@
                     this.ShowError(exception, false);
                 }
             }
-            this.tslblStatus.Text = "Ready";
+            this.tslblStatus.Text = "已就位";
         }
 
         private void cmsAbout_Click(object sender, EventArgs e)
@@ -216,7 +216,7 @@
 
         private bool ExitApplication()
         {
-            if (MessageBox.Show("If you exit the application, NCS WinVisible cannot monitor hotkeys.\nAre you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("如果你关闭WinVisible，WinVisible就不能监控快捷键。是否要继续？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return false;
             }
@@ -341,7 +341,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Windowed Processes", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("有窗口的进程", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Unwindowed Processes", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lvwProcess = new System.Windows.Forms.ListView();
@@ -368,8 +368,6 @@
             this.tsbtnUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbtnAbout = new System.Windows.Forms.ToolStripButton();
             this.iconTray = new System.Windows.Forms.NotifyIcon(this.components);
-            this.iconTray.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-
             this.cmsTray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsShow = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsAbout = new System.Windows.Forms.ToolStripMenuItem();
@@ -400,18 +398,19 @@
             this.lvwProcess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwProcess.FullRowSelect = true;
             this.lvwProcess.GridLines = true;
-            listViewGroup1.Header = "Windowed Processes";
+            listViewGroup1.Header = "有窗口的进程";
             listViewGroup1.Name = "Windowed";
             listViewGroup2.Header = "Unwindowed Processes";
-            listViewGroup2.Name = "Unwindowed";
+            listViewGroup2.Name = "没有窗口的进程";
             this.lvwProcess.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
             listViewGroup2});
             this.lvwProcess.HideSelection = false;
             this.lvwProcess.Location = new System.Drawing.Point(0, 0);
+            this.lvwProcess.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lvwProcess.MultiSelect = false;
             this.lvwProcess.Name = "lvwProcess";
-            this.lvwProcess.Size = new System.Drawing.Size(737, 321);
+            this.lvwProcess.Size = new System.Drawing.Size(860, 480);
             this.lvwProcess.TabIndex = 0;
             this.lvwProcess.UseCompatibleStateImageBehavior = false;
             this.lvwProcess.View = System.Windows.Forms.View.Details;
@@ -420,12 +419,12 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Process Name";
+            this.columnHeader1.Text = "进程名称";
             this.columnHeader1.Width = 131;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Title";
+            this.columnHeader2.Text = "标题";
             this.columnHeader2.Width = 180;
             // 
             // columnHeader3
@@ -434,29 +433,30 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Status";
+            this.columnHeader4.Text = "状态";
             this.columnHeader4.Width = 90;
             // 
             // cmsItem
             // 
+            this.cmsItem.BackColor = System.Drawing.Color.White;
             this.cmsItem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsHideProc,
             this.cmsShowProc});
             this.cmsItem.Name = "cmsItem";
-            this.cmsItem.Size = new System.Drawing.Size(108, 48);
+            this.cmsItem.Size = new System.Drawing.Size(101, 48);
             // 
             // cmsHideProc
             // 
             this.cmsHideProc.Name = "cmsHideProc";
-            this.cmsHideProc.Size = new System.Drawing.Size(107, 22);
-            this.cmsHideProc.Text = "Hide";
+            this.cmsHideProc.Size = new System.Drawing.Size(100, 22);
+            this.cmsHideProc.Text = "隐藏";
             this.cmsHideProc.Click += new System.EventHandler(this.cmsHideProc_Click);
             // 
             // cmsShowProc
             // 
             this.cmsShowProc.Name = "cmsShowProc";
-            this.cmsShowProc.Size = new System.Drawing.Size(107, 22);
-            this.cmsShowProc.Text = "Show";
+            this.cmsShowProc.Size = new System.Drawing.Size(100, 22);
+            this.cmsShowProc.Text = "显示";
             this.cmsShowProc.Click += new System.EventHandler(this.cmsShowProc_Click);
             // 
             // toolStripContainer1
@@ -469,11 +469,13 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.lvwProcess);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(737, 321);
+            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(860, 480);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(737, 382);
+            this.toolStripContainer1.Size = new System.Drawing.Size(860, 541);
             this.toolStripContainer1.TabIndex = 3;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -483,33 +485,35 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblStatus,
             this.tslnkError});
             this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(737, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(860, 22);
             this.statusStrip1.TabIndex = 0;
             // 
             // tslblStatus
             // 
             this.tslblStatus.Name = "tslblStatus";
             this.tslblStatus.Size = new System.Drawing.Size(44, 17);
-            this.tslblStatus.Text = "Ready";
+            this.tslblStatus.Text = "已就位";
             // 
             // tslnkError
             // 
             this.tslnkError.Image = global::WinVisible.Properties.Resources.delete16x16;
             this.tslnkError.IsLink = true;
             this.tslnkError.Name = "tslnkError";
-            this.tslnkError.Size = new System.Drawing.Size(229, 17);
-            this.tslnkError.Text = "An error occurred. Click for details.";
+            this.tslnkError.Size = new System.Drawing.Size(204, 17);
+            this.tslnkError.Text = "发生了一个错误。单击查看详情。";
             this.tslnkError.Visible = false;
             this.tslnkError.Click += new System.EventHandler(this.tslnkError_Click);
             // 
             // tsMain
             // 
+            this.tsMain.BackColor = System.Drawing.Color.White;
             this.tsMain.Dock = System.Windows.Forms.DockStyle.None;
             this.tsMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -525,7 +529,7 @@
             this.tsbtnAbout});
             this.tsMain.Location = new System.Drawing.Point(0, 0);
             this.tsMain.Name = "tsMain";
-            this.tsMain.Size = new System.Drawing.Size(737, 39);
+            this.tsMain.Size = new System.Drawing.Size(860, 39);
             this.tsMain.Stretch = true;
             this.tsMain.TabIndex = 1;
             this.tsMain.Text = "Options";
@@ -539,7 +543,7 @@
             this.tsbtnHide.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnHide.Name = "tsbtnHide";
             this.tsbtnHide.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnHide.Text = "Hide Selected Window";
+            this.tsbtnHide.Text = "隐藏选中窗口";
             this.tsbtnHide.Click += new System.EventHandler(this.tsbtnHide_Click);
             // 
             // tsbtnShow
@@ -551,7 +555,7 @@
             this.tsbtnShow.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnShow.Name = "tsbtnShow";
             this.tsbtnShow.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnShow.Text = "Show Selected Window";
+            this.tsbtnShow.Text = "显示选中窗口";
             this.tsbtnShow.Click += new System.EventHandler(this.tsbtnShow_Click);
             // 
             // toolStripSeparator1
@@ -568,7 +572,7 @@
             this.tsbtnKill.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnKill.Name = "tsbtnKill";
             this.tsbtnKill.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnKill.Text = "Kill Selected Process";
+            this.tsbtnKill.Text = "结束选中进程";
             this.tsbtnKill.Click += new System.EventHandler(this.tsbtnKill_Click);
             // 
             // toolStripSeparator3
@@ -584,7 +588,7 @@
             this.tsbtnOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnOptions.Name = "tsbtnOptions";
             this.tsbtnOptions.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnOptions.Text = "Settings";
+            this.tsbtnOptions.Text = "设置";
             this.tsbtnOptions.Click += new System.EventHandler(this.tsbtnOptions_Click);
             // 
             // toolStripSeparator4
@@ -600,7 +604,7 @@
             this.tsbtnSendDonation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnSendDonation.Name = "tsbtnSendDonation";
             this.tsbtnSendDonation.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnSendDonation.Text = "Send Donation";
+            this.tsbtnSendDonation.Text = "捐赠";
             this.tsbtnSendDonation.Click += new System.EventHandler(this.tsbtnSendDonation_Click);
             // 
             // tsbtnUpdate
@@ -611,7 +615,7 @@
             this.tsbtnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnUpdate.Name = "tsbtnUpdate";
             this.tsbtnUpdate.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnUpdate.Text = "Check For Updates";
+            this.tsbtnUpdate.Text = "检查更新";
             this.tsbtnUpdate.Click += new System.EventHandler(this.tsbtnUpdate_Click);
             // 
             // tsbtnAbout
@@ -622,19 +626,21 @@
             this.tsbtnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnAbout.Name = "tsbtnAbout";
             this.tsbtnAbout.Size = new System.Drawing.Size(36, 36);
-            this.tsbtnAbout.Text = "About";
+            this.tsbtnAbout.Text = "关于";
             this.tsbtnAbout.Click += new System.EventHandler(this.tsbtnAbout_Click);
             // 
             // iconTray
             // 
             this.iconTray.ContextMenuStrip = this.cmsTray;
-            this.iconTray.Text = "NCS WinVisible";
+            this.iconTray.Icon = ((System.Drawing.Icon)(resources.GetObject("iconTray.Icon")));
+            this.iconTray.Text = "WinVisible";
             this.iconTray.Visible = true;
             this.iconTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.iconTray_MouseClick);
-            this.iconTray.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             // 
             // cmsTray
             // 
+            this.cmsTray.BackColor = System.Drawing.Color.White;
+            this.cmsTray.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmsTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsShow,
             this.cmsAbout,
@@ -643,47 +649,49 @@
             this.cmsOptions,
             this.cmsExit});
             this.cmsTray.Name = "cmsTray";
-            this.cmsTray.Size = new System.Drawing.Size(188, 120);
+            this.cmsTray.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.cmsTray.Size = new System.Drawing.Size(181, 142);
             // 
             // cmsShow
             // 
-            this.cmsShow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsShow.BackColor = System.Drawing.Color.White;
+            this.cmsShow.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsShow.Name = "cmsShow";
-            this.cmsShow.Size = new System.Drawing.Size(187, 22);
-            this.cmsShow.Text = "NCS WinVisible";
+            this.cmsShow.Size = new System.Drawing.Size(180, 22);
+            this.cmsShow.Text = "WinVisible";
             this.cmsShow.Click += new System.EventHandler(this.cmsShow_Click);
             // 
             // cmsAbout
             // 
             this.cmsAbout.Name = "cmsAbout";
-            this.cmsAbout.Size = new System.Drawing.Size(187, 22);
-            this.cmsAbout.Text = "About...";
+            this.cmsAbout.Size = new System.Drawing.Size(180, 22);
+            this.cmsAbout.Text = "关于...";
             this.cmsAbout.Click += new System.EventHandler(this.cmsAbout_Click);
             // 
             // cmsCheckUpdates
             // 
             this.cmsCheckUpdates.Name = "cmsCheckUpdates";
-            this.cmsCheckUpdates.Size = new System.Drawing.Size(187, 22);
-            this.cmsCheckUpdates.Text = "Check For Updates";
+            this.cmsCheckUpdates.Size = new System.Drawing.Size(180, 22);
+            this.cmsCheckUpdates.Text = "检查更新";
             this.cmsCheckUpdates.Click += new System.EventHandler(this.cmsCheckUpdates_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(184, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // cmsOptions
             // 
             this.cmsOptions.Name = "cmsOptions";
-            this.cmsOptions.Size = new System.Drawing.Size(187, 22);
-            this.cmsOptions.Text = "Options...";
+            this.cmsOptions.Size = new System.Drawing.Size(180, 22);
+            this.cmsOptions.Text = "选项...";
             this.cmsOptions.Click += new System.EventHandler(this.cmsOptions_Click);
             // 
             // cmsExit
             // 
             this.cmsExit.Name = "cmsExit";
-            this.cmsExit.Size = new System.Drawing.Size(187, 22);
-            this.cmsExit.Text = "Exit";
+            this.cmsExit.Size = new System.Drawing.Size(180, 22);
+            this.cmsExit.Text = "退出";
             this.cmsExit.Click += new System.EventHandler(this.cmsExit_Click);
             // 
             // processWorker
@@ -692,13 +700,16 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 382);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(860, 541);
             this.Controls.Add(this.toolStripContainer1);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
-            this.Text = "NCS WinVisible";
+            this.Text = "WinVisible";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -920,7 +931,7 @@
 
         private void tsbtnKill_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to kill this process?\nUnsaved work will be lost.", "Caution", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (MessageBox.Show("你确定要结束进程吗？\n未保存的工作将丢失。", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 this.KillProcess();
             }
@@ -964,7 +975,7 @@
                 item2.Text = item.Process.ProcessName;
                 item2.SubItems[1].Text = item.Process.MainWindowTitle;
                 item2.SubItems[2].Text = item.Process.Id.ToString();
-                item2.SubItems[3].Text = item.Visible ? "Visible" : "Hidden";
+                item2.SubItems[3].Text = item.Visible ? "可见" : "不可见";
             }
         }
 

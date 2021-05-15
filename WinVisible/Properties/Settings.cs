@@ -15,8 +15,8 @@
 
         public static Settings Default =>
             defaultInstance;
-
-        [UserScopedSetting, DefaultSettingValue("0"), DebuggerNonUserCode]
+     
+        [ApplicationScopedSetting, DefaultSettingValue("0"), DebuggerNonUserCode]
         public int AppCloseAction
         {
             get => 
@@ -34,7 +34,7 @@
                 this["WarnOnNonRecommended"] = value;
         }
 
-        [DefaultSettingValue("Alt+Shift+S"), UserScopedSetting, DebuggerNonUserCode]
+        [DefaultSettingValue("Alt+Z"), ApplicationScopedSetting, DebuggerNonUserCode]
         public Keys ShowHotkey
         {
             get => 
